@@ -1,0 +1,118 @@
+{
+  "scenario_id": "daily_chat_001",
+  "scenario_name": "日常问候聊天",
+  "start_time": 1737398400.0,
+  "end_time": 1737398405.2,
+  "duration": 5.2,
+  "transcript": [
+    {
+      "speaker": "player",
+      "message": "你好！今天天气真不错，你是这个村的村民吗？",
+      "timestamp": 1737398400.5,
+      "metadata": {
+        "turn": 0
+      }
+    },
+    {
+      "speaker": "npc",
+      "message": "你好！是的，我在这里生活了很多年。今天天气确实很好，很适合散步。你是第一次来我们村吗？",
+      "timestamp": 1737398401.2,
+      "metadata": {
+        "turn": 0
+      }
+    },
+    {
+      "speaker": "player",
+      "message": "是的，我是旅行者，刚到这里。能给我介绍一下这个村吗？",
+      "timestamp": 1737398402.0,
+      "metadata": {
+        "turn": 1
+      }
+    },
+    {
+      "speaker": "npc",
+      "message": "当然！我们村以友善的村民和美丽的风景闻名。那边的小山是看日落的最佳地点，还有村里的市集有很多当地特产。",
+      "timestamp": 1737398403.0,
+      "metadata": {
+        "turn": 1
+      }
+    },
+    {
+      "speaker": "player",
+      "message": "听起来很棒！我一定会去看看的。谢谢你的介绍！",
+      "timestamp": 1737398404.0,
+      "metadata": {
+        "turn": 2
+      }
+    }
+  ],
+  "grading_results": {
+    "character_consistency": {
+      "grader_name": "character_consistency",
+      "score": 0.9,
+      "passed": true,
+      "evidence": [
+        {
+          "evidence_type": "llm_analysis",
+          "content": "NPC的回复符合友好村民的角色设定，说话风格亲切温暖，体现了互助和善良的价值观。",
+          "relevance": 1.0,
+          "source_indices": [],
+          "metadata": {}
+        }
+      ],
+      "reasoning": "NPC始终保持友好的态度，说话风格一致，价值观得到体现。",
+      "confidence": 0.85,
+      "metadata": {}
+    },
+    "interaction_quality": {
+      "grader_name": "interaction_quality",
+      "score": 0.85,
+      "passed": true,
+      "evidence": [
+        {
+          "evidence_type": "llm_analysis",
+          "content": "对话自然流畅，NPC能够理解玩家意图并主动询问相关信息，对话推动力良好。",
+          "relevance": 1.0,
+          "source_indices": [],
+          "metadata": {}
+        }
+      ],
+      "reasoning": "对话流畅自然，NPC能够理解玩家意图并主动推动对话发展。",
+      "confidence": 0.8,
+      "metadata": {}
+    },
+    "basic_rules": {
+      "grader_name": "basic_rules",
+      "score": 1.0,
+      "passed": true,
+      "evidence": [
+        {
+          "evidence_type": "rule_match",
+          "content": "规则 'no_profanity' 匹配：未检测到违规内容",
+          "relevance": 2.0,
+          "source_indices": [],
+          "metadata": {}
+        },
+        {
+          "evidence_type": "rule_match",
+          "content": "规则 'response_length' 匹配：回复长度在合理范围内",
+          "relevance": 1.0,
+          "source_indices": [1, 3],
+          "metadata": {}
+        }
+      ],
+      "reasoning": "评估了 3 条规则，匹配了 3 条。 必需规则 1/1 条通过。 最终得分：1.00。",
+      "confidence": 0.9,
+      "metadata": {}
+    }
+  },
+  "final_score": 0.9,
+  "passed": true,
+  "errors": [],
+  "metadata": {
+    "random_seed": 42,
+    "agent_type": "mock",
+    "npc_role": "友好的村民",
+    "player_profile": "普通玩家"
+  }
+}

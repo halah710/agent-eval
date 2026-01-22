@@ -1,0 +1,44 @@
+# 基础问候场景（回归测试）
+id: "basic_greeting_001"
+name: "基础问候"
+description: "最基本的问候场景，用于回归测试确保核心功能正常"
+scenario_type: "daily_chat"
+player_profile:
+  name: "测试玩家"
+  personality: "friendly"
+  age: 20
+  background: "测试用玩家角色"
+  interests: ["测试"]
+  speaking_style: "简单、直接"
+  knowledge_level: 3
+  emotional_state: "neutral"
+
+initial_prompt: "你好！"
+max_turns: 3
+expected_outcomes:
+  - "NPC能够回应问候"
+  - "对话能够正常开始"
+  - "没有技术错误"
+  - "基本对话流程正常"
+
+reference_solution:
+  description: "最简单的基础对话"
+  transcript:
+    - speaker: "player"
+      message: "你好！"
+    - speaker: "npc"
+      message: "你好！很高兴见到你。"
+    - speaker: "player"
+      message: "今天天气不错。"
+    - speaker: "npc"
+      message: "是的，是个好天气。"
+  success_factors:
+    - "能够理解并回应简单问候"
+    - "对话流程正常"
+    - "没有技术错误"
+
+metadata:
+  difficulty: "very_easy"
+  expected_duration: "1-2分钟"
+  tags: ["regression", "basic", "greeting"]
+  regression_test: true

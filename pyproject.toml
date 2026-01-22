@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-eval"
+version = "0.1.0"
+description = "对话类AI Agent评测系统 - 游戏NPC对话评测框架"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "AI Agent Eval System", email = "example@example.com"}
+]
+keywords = ["ai", "agent", "evaluation", "npc", "dialogue", "testing"]
+
+dependencies = [
+    "openai>=1.0.0",
+    "anthropic>=0.8.0",
+    "pydantic>=2.0.0",
+    "pyyaml>=6.0",
+    "loguru>=0.7.0",
+    "colorama>=0.4.6",
+    "typing-extensions>=4.0.0",
+    "aiohttp>=3.9.0",
+    "tenacity>=8.2.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.0.0",
+    "ruff>=0.1.0",
+]
+web = [
+    "fastapi>=0.104.0",
+    "uvicorn>=0.24.0",
+    "jinja2>=3.1.0",
+]
+local = [
+    "transformers>=4.36.0",
+    "torch>=2.0.0",
+    "accelerate>=0.24.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/example/agent-eval"
+Repository = "https://github.com/example/agent-eval.git"
+Issues = "https://github.com/example/agent-eval/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = ["*.yaml", "*.yml", "*.json", "*.md"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-v --cov=src --cov-report=term-missing"

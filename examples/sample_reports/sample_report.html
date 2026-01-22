@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent评测报告 - run_20260121_231324</title>
+    
+        <style>
+            body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                   margin: 0; padding: 20px; background: #f5f5f5; color: #333; }
+            .container { max-width: 1200px; margin: 0 auto; background: white;
+                        border-radius: 8px; padding: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+            .header { border-bottom: 2px solid #007acc; padding-bottom: 20px; margin-bottom: 30px; }
+            h1 { color: #007acc; margin: 0 0 10px 0; }
+            .subtitle { color: #666; margin: 0 0 20px 0; }
+            .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                           gap: 20px; margin-bottom: 30px; }
+            .summary-card { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px;
+                           padding: 20px; text-align: center; }
+            .summary-card h3 { margin: 0 0 10px 0; color: #495057; font-size: 14px; }
+            .summary-card .value { font-size: 28px; font-weight: bold; }
+            .summary-card.passed .value { color: #28a745; }
+            .summary-card.failed .value { color: #dc3545; }
+            .summary-card.average .value { color: #007acc; }
+            table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+            th { background: #007acc; color: white; text-align: left; padding: 12px; }
+            td { padding: 12px; border-bottom: 1px solid #dee2e6; }
+            tr:hover { background: #f8f9fa; }
+            .score-cell { text-align: center; font-weight: bold; }
+            .passed { color: #28a745; }
+            .failed { color: #dc3545; }
+            .transcript { background: #f8f9fa; padding: 15px; border-radius: 6px; margin: 10px 0; }
+            .turn { margin: 10px 0; padding: 10px; border-left: 3px solid #007acc; background: white; }
+            .player { color: #28a745; font-weight: bold; }
+            .npc { color: #dc3545; font-weight: bold; }
+            .details-section { margin: 30px 0; padding-top: 20px; border-top: 1px solid #dee2e6; }
+            h2 { color: #495057; margin: 30px 0 15px 0; }
+            .grading-results { margin: 20px 0; }
+            .grader-result { background: #e9ecef; padding: 15px; border-radius: 6px; margin: 10px 0; }
+            .footer { margin-top: 40px; text-align: center; color: #666; font-size: 14px; }
+        </style>
+        
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AI Agent评测系统报告</h1>
+            <div class="subtitle">
+                运行ID: run_20260121_231324 | 时间: 2026-01-21T23:13:24.665668 | 套件类型: capability
+            </div>
+        </div>
+
+        <!-- 摘要统计 -->
+        <div class="summary-grid">
+            <div class="summary-card">
+                <h3>测试场景总数</h3>
+                <div class="value">5</div>
+            </div>
+            <div class="summary-card passed">
+                <h3>通过场景</h3>
+                <div class="value">4</div>
+            </div>
+            <div class="summary-card failed">
+                <h3>失败场景</h3>
+                <div class="value">1</div>
+            </div>
+            <div class="summary-card average">
+                <h3>平均得分</h3>
+                <div class="value">84.02%</div>
+            </div>
+            <div class="summary-card">
+                <h3>通过率</h3>
+                <div class="value">80.00%</div>
+            </div>
+            <div class="summary-card">
+                <h3>总持续时间</h3>
+                <div class="value">125.00s</div>
+            </div>
+        </div>
+
+        <!-- 详细结果表格 -->
+        <h2>详细评测结果</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>场景ID</th>
+                    <th>场景名称</th>
+                    <th>类型</th>
+                    <th>得分</th>
+                    <th>状态</th>
+                    <th>轮次</th>
+                    <th>持续时间</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                <tr>
+                    <td>basic_greeting_001</td>
+                    <td>基础问候</td>
+                    <td>daily_chat</td>
+                    <td class="score-cell"><span class="passed">100.00%</span></td>
+                    <td class="passed">通过</td>
+                    <td>4</td>
+                    <td>25.00s</td>
+                </tr>
+            
+                <tr>
+                    <td>daily_chat_001</td>
+                    <td>日常问候聊天</td>
+                    <td>daily_chat</td>
+                    <td class="score-cell"><span class="passed">85.45%</span></td>
+                    <td class="passed">通过</td>
+                    <td>4</td>
+                    <td>25.00s</td>
+                </tr>
+            
+                <tr>
+                    <td>emotional_support_001</td>
+                    <td>情感倾诉与支持</td>
+                    <td>emotional_support</td>
+                    <td class="score-cell"><span class="passed">72.73%</span></td>
+                    <td class="passed">通过</td>
+                    <td>4</td>
+                    <td>25.00s</td>
+                </tr>
+            
+                <tr>
+                    <td>opinion_conflict_001</td>
+                    <td>观点分歧与辩论</td>
+                    <td>opinion_conflict</td>
+                    <td class="score-cell"><span class="failed">61.91%</span></td>
+                    <td class="failed">失败</td>
+                    <td>4</td>
+                    <td>25.00s</td>
+                </tr>
+            
+                <tr>
+                    <td>simple_qa_001</td>
+                    <td>简单问答</td>
+                    <td>knowledge_test</td>
+                    <td class="score-cell"><span class="passed">100.00%</span></td>
+                    <td class="passed">通过</td>
+                    <td>4</td>
+                    <td>25.00s</td>
+                </tr>
+            
+            </tbody>
+        </table>
+        
+        <div class="details-section">
+            <h2>详细评测信息</h2>
+            <button onclick="toggleAllDetails()" style="margin-bottom: 15px; padding: 8px 15px;
+                    background: #007acc; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                展开/收起所有详细结果
+            </button>
+        
+            <div class="scenario-details" id="details-0">
+                <h3>基础问候 (ID: basic_greeting_001)</h3>
+                
+                <div class="npc-role" style="background: #f0f8ff; padding: 15px; border-radius: 6px; margin: 15px 0; border-left: 4px solid #007acc;">
+                    <h4>NPC角色设定</h4>
+                    <ul style="margin: 5px 0; padding-left: 20px;">
+                        <li><strong>角色名称</strong>: 友好的村民</li>
+                        <li><strong>性格</strong>: 热情友好，乐于助人</li>
+                        <li><strong>背景故事</strong>: 在这个村庄生活了30年，熟悉村里的每一个人和每一件事</li>
+                        <li><strong>说话风格</strong>: 亲切、温暖、充满关怀</li>
+                        <li><strong>价值观</strong>: 互助, 诚实, 善良, 社区精神</li>
+                    </ul>
+                </div>
+                
+                <div class="grading-results">
+                    <h4>评分结果</h4>
+            
+                    <div class="grader-result">
+                        <strong>character_consistency</strong>:
+                        <span class="passed">100.00% (通过)</span><br>
+                        <em>总体理由: NPC在基础问候场景中表现优秀，回复快速准确。...</em>
+                
+                        <div style="margin-top: 10px; padding-left: 20px; border-left: 2px solid #ccc;">
+                            <strong>评分准则详情:</strong>
+                            <ul style="margin: 5px 0; padding-left: 20px;">
+                    
+                            <li>
+                                <strong>assertion_1</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的回复符合其角色设定</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则1: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_2</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的说话风格保持一致</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则2: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_3</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的价值观在对话中得到体现</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则3: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_4</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC没有出现角色矛盾的行为或言论</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则4: 满足要求...</span>
+                            </li>
+                        
+                            </ul>
+                        </div>
+                    
+                    </div>
+                
+                    <div class="grader-result">
+                        <strong>interaction_quality</strong>:
+                        <span class="passed">100.00% (通过)</span><br>
+                        <em>总体理由: NPC在基础问候场景中表现优秀，回复快速准确。...</em>
+                
+                        <div style="margin-top: 10px; padding-left: 20px; border-left: 2px solid #ccc;">
+                            <strong>评分准则详情:</strong>
+                            <ul style="margin: 5px 0; padding-left: 20px;">
+                    
+                            <li>
+                                <strong>assertion_1</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">对话自然流畅</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则1: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_2</strong> (1.2权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的回应与玩家输入相关</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则2: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_3</strong> (1.5权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC能够理解玩家的意图</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则3: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_4</strong> (0.8权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">对话能够持续进行，不会突然中断</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则4: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_5</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的回应有助于推动对话发展</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则5: 满足要求...</span>
+                            </li>
+                        
+                            </ul>
+                        </div>
+                    
+                    </div>
+                
+                    <div class="grader-result">
+                        <strong>basic_rules</strong>:
+                        <span class="passed">100.00% (通过)</span><br>
+                        <em>总体理由: NPC在基础问候场景中表现优秀，回复快速准确。...</em>
+                
+                        <div style="margin-top: 10px; padding-left: 20px; border-left: 2px solid #ccc;">
+                            <strong>评分准则详情:</strong>
+                            <ul style="margin: 5px 0; padding-left: 20px;">
+                    
+                            <li>
+                                <strong>assertion_1</strong> (2.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">不应包含脏话或侮辱性语言</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则1: 满足要求（模拟对话中无脏话）...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_2</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">回复长度应在10-500字符之间</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则2: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_3</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">对于玩家的提问应给予回应</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则3: 满足要求...</span>
+                            </li>
+                        
+                            </ul>
+                        </div>
+                    
+                    </div>
+                
+                </div>
+
+                <h4>对话记录 (4 轮)</h4>
+                <div class="transcript">
+            
+                    <div class="turn">
+                        <span class="player">player:</span> 你好！
+                    </div>
+                
+                    <div class="turn">
+                        <span class="npc">npc:</span> 你好！
+                    </div>
+                
+                    <div class="turn">
+                        <span class="player">player:</span> 你好吗？
+                    </div>
+                
+                    <div class="turn">
+                        <span class="npc">npc:</span> 我很好，谢谢！
+                    </div>
+                
+                </div>
+            </div>
+            <hr style="margin: 30px 0; border: none; border-top: 1px solid #dee2e6;">
+            
+            <div class="scenario-details" id="details-1">
+                <h3>日常问候聊天 (ID: daily_chat_001)</h3>
+                
+                <div class="npc-role" style="background: #f0f8ff; padding: 15px; border-radius: 6px; margin: 15px 0; border-left: 4px solid #007acc;">
+                    <h4>NPC角色设定</h4>
+                    <ul style="margin: 5px 0; padding-left: 20px;">
+                        <li><strong>角色名称</strong>: 友好的村民</li>
+                        <li><strong>性格</strong>: 热情友好，乐于助人</li>
+                        <li><strong>背景故事</strong>: 在这个村庄生活了30年，熟悉村里的每一个人和每一件事</li>
+                        <li><strong>说话风格</strong>: 亲切、温暖、充满关怀</li>
+                        <li><strong>价值观</strong>: 互助, 诚实, 善良, 社区精神</li>
+                    </ul>
+                </div>
+                
+                <div class="grading-results">
+                    <h4>评分结果</h4>
+            
+                    <div class="grader-result">
+                        <strong>character_consistency</strong>:
+                        <span class="passed">100.00% (通过)</span><br>
+                        <em>总体理由: NPC在日常聊天中表现良好，友好亲切，对话自然流畅。...</em>
+                
+                        <div style="margin-top: 10px; padding-left: 20px; border-left: 2px solid #ccc;">
+                            <strong>评分准则详情:</strong>
+                            <ul style="margin: 5px 0; padding-left: 20px;">
+                    
+                            <li>
+                                <strong>assertion_1</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的回复符合其角色设定</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则1: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_2</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的说话风格保持一致</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则2: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_3</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的价值观在对话中得到体现</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则3: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_4</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC没有出现角色矛盾的行为或言论</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则4: 满足要求...</span>
+                            </li>
+                        
+                            </ul>
+                        </div>
+                    
+                    </div>
+                
+                    <div class="grader-result">
+                        <strong>interaction_quality</strong>:
+                        <span class="failed">63.64% (失败)</span><br>
+                        <em>总体理由: NPC在日常聊天中表现良好，友好亲切，对话自然流畅。...</em>
+                
+                        <div style="margin-top: 10px; padding-left: 20px; border-left: 2px solid #ccc;">
+                            <strong>评分准则详情:</strong>
+                            <ul style="margin: 5px 0; padding-left: 20px;">
+                    
+                            <li>
+                                <strong>assertion_1</strong> (1.0权重):
+                                <span class="failed">0% (失败)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">对话自然流畅</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则1: 有待改进...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_2</strong> (1.2权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的回应与玩家输入相关</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则2: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_3</strong> (1.5权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC能够理解玩家的意图</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则3: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_4</strong> (0.8权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">对话能够持续进行，不会突然中断</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则4: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_5</strong> (1.0权重):
+                                <span class="failed">0% (失败)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的回应有助于推动对话发展</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则5: 有待改进...</span>
+                            </li>
+                        
+                            </ul>
+                        </div>
+                    
+                    </div>
+                
+                    <div class="grader-result">
+                        <strong>basic_rules</strong>:
+                        <span class="passed">100.00% (通过)</span><br>
+                        <em>总体理由: NPC在日常聊天中表现良好，友好亲切，对话自然流畅。...</em>
+                
+                        <div style="margin-top: 10px; padding-left: 20px; border-left: 2px solid #ccc;">
+                            <strong>评分准则详情:</strong>
+                            <ul style="margin: 5px 0; padding-left: 20px;">
+                    
+                            <li>
+                                <strong>assertion_1</strong> (2.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">不应包含脏话或侮辱性语言</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则1: 满足要求（模拟对话中无脏话）...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_2</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">回复长度应在10-500字符之间</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则2: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_3</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">对于玩家的提问应给予回应</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则3: 满足要求...</span>
+                            </li>
+                        
+                            </ul>
+                        </div>
+                    
+                    </div>
+                
+                </div>
+
+                <h4>对话记录 (4 轮)</h4>
+                <div class="transcript">
+            
+                    <div class="turn">
+                        <span class="player">player:</span> 嗨，你好！今天天气真不错，你经常来这里散步吗？
+                    </div>
+                
+                    <div class="turn">
+                        <span class="npc">npc:</span> 你好！是的，我几乎每天都会来这个公园散步。今天天气确实很适合户外活动。
+                    </div>
+                
+                    <div class="turn">
+                        <span class="player">player:</span> 听起来很棒！我最近刚搬到这附近，有什么推荐的餐馆或咖啡馆吗？
+                    </div>
+                
+                    <div class="turn">
+                        <span class="npc">npc:</span> 当然！街角那家'阳光咖啡馆'的咖啡很不错，还有'老街餐馆'的传统菜也很受欢迎。
+                    </div>
+                
+                </div>
+            </div>
+            <hr style="margin: 30px 0; border: none; border-top: 1px solid #dee2e6;">
+            
+            <div class="scenario-details" id="details-2">
+                <h3>情感倾诉与支持 (ID: emotional_support_001)</h3>
+                
+                <div class="npc-role" style="background: #f0f8ff; padding: 15px; border-radius: 6px; margin: 15px 0; border-left: 4px solid #007acc;">
+                    <h4>NPC角色设定</h4>
+                    <ul style="margin: 5px 0; padding-left: 20px;">
+                        <li><strong>角色名称</strong>: 友好的村民</li>
+                        <li><strong>性格</strong>: 热情友好，乐于助人</li>
+                        <li><strong>背景故事</strong>: 在这个村庄生活了30年，熟悉村里的每一个人和每一件事</li>
+                        <li><strong>说话风格</strong>: 亲切、温暖、充满关怀</li>
+                        <li><strong>价值观</strong>: 互助, 诚实, 善良, 社区精神</li>
+                    </ul>
+                </div>
+                
+                <div class="grading-results">
+                    <h4>评分结果</h4>
+            
+                    <div class="grader-result">
+                        <strong>character_consistency</strong>:
+                        <span class="failed">50.00% (失败)</span><br>
+                        <em>总体理由: NPC在情感支持方面有一定表现，但共情深度有待提升。...</em>
+                
+                        <div style="margin-top: 10px; padding-left: 20px; border-left: 2px solid #ccc;">
+                            <strong>评分准则详情:</strong>
+                            <ul style="margin: 5px 0; padding-left: 20px;">
+                    
+                            <li>
+                                <strong>assertion_1</strong> (1.0权重):
+                                <span class="failed">0% (失败)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的回复符合其角色设定</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则1: 有待改进...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_2</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的说话风格保持一致</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则2: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_3</strong> (1.0权重):
+                                <span class="failed">0% (失败)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的价值观在对话中得到体现</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则3: 有待改进...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_4</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC没有出现角色矛盾的行为或言论</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则4: 满足要求...</span>
+                            </li>
+                        
+                            </ul>
+                        </div>
+                    
+                    </div>
+                
+                    <div class="grader-result">
+                        <strong>interaction_quality</strong>:
+                        <span class="passed">81.82% (通过)</span><br>
+                        <em>总体理由: NPC在情感支持方面有一定表现，但共情深度有待提升。...</em>
+                
+                        <div style="margin-top: 10px; padding-left: 20px; border-left: 2px solid #ccc;">
+                            <strong>评分准则详情:</strong>
+                            <ul style="margin: 5px 0; padding-left: 20px;">
+                    
+                            <li>
+                                <strong>assertion_1</strong> (1.0权重):
+                                <span class="failed">0% (失败)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">对话自然流畅</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则1: 有待改进...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_2</strong> (1.2权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的回应与玩家输入相关</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则2: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_3</strong> (1.5权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC能够理解玩家的意图</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则3: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_4</strong> (0.8权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">对话能够持续进行，不会突然中断</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则4: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_5</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的回应有助于推动对话发展</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则5: 满足要求...</span>
+                            </li>
+                        
+                            </ul>
+                        </div>
+                    
+                    </div>
+                
+                    <div class="grader-result">
+                        <strong>basic_rules</strong>:
+                        <span class="passed">100.00% (通过)</span><br>
+                        <em>总体理由: NPC在情感支持方面有一定表现，但共情深度有待提升。...</em>
+                
+                        <div style="margin-top: 10px; padding-left: 20px; border-left: 2px solid #ccc;">
+                            <strong>评分准则详情:</strong>
+                            <ul style="margin: 5px 0; padding-left: 20px;">
+                    
+                            <li>
+                                <strong>assertion_1</strong> (2.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">不应包含脏话或侮辱性语言</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则1: 满足要求（模拟对话中无脏话）...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_2</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">回复长度应在10-500字符之间</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则2: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_3</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">对于玩家的提问应给予回应</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则3: 满足要求...</span>
+                            </li>
+                        
+                            </ul>
+                        </div>
+                    
+                    </div>
+                
+                </div>
+
+                <h4>对话记录 (4 轮)</h4>
+                <div class="transcript">
+            
+                    <div class="turn">
+                        <span class="player">player:</span> 我今天心情很不好，工作压力太大了。
+                    </div>
+                
+                    <div class="turn">
+                        <span class="npc">npc:</span> 听起来你今天过得很辛苦，工作压力确实会让人感到疲惫。
+                    </div>
+                
+                    <div class="turn">
+                        <span class="player">player:</span> 是的，我觉得自己快撑不住了。
+                    </div>
+                
+                    <div class="turn">
+                        <span class="npc">npc:</span> 每个人都有压力大的时候，重要的是找到适合自己的放松方式。
+                    </div>
+                
+                </div>
+            </div>
+            <hr style="margin: 30px 0; border: none; border-top: 1px solid #dee2e6;">
+            
+            <div class="scenario-details" id="details-3">
+                <h3>观点分歧与辩论 (ID: opinion_conflict_001)</h3>
+                
+                <div class="npc-role" style="background: #f0f8ff; padding: 15px; border-radius: 6px; margin: 15px 0; border-left: 4px solid #007acc;">
+                    <h4>NPC角色设定</h4>
+                    <ul style="margin: 5px 0; padding-left: 20px;">
+                        <li><strong>角色名称</strong>: 友好的村民</li>
+                        <li><strong>性格</strong>: 热情友好，乐于助人</li>
+                        <li><strong>背景故事</strong>: 在这个村庄生活了30年，熟悉村里的每一个人和每一件事</li>
+                        <li><strong>说话风格</strong>: 亲切、温暖、充满关怀</li>
+                        <li><strong>价值观</strong>: 互助, 诚实, 善良, 社区精神</li>
+                    </ul>
+                </div>
+                
+                <div class="grading-results">
+                    <h4>评分结果</h4>
+            
+                    <div class="grader-result">
+                        <strong>character_consistency</strong>:
+                        <span class="failed">50.00% (失败)</span><br>
+                        <em>总体理由: NPC处理观点冲突时保持礼貌，但未能充分引导对话走向建设性讨论。...</em>
+                
+                        <div style="margin-top: 10px; padding-left: 20px; border-left: 2px solid #ccc;">
+                            <strong>评分准则详情:</strong>
+                            <ul style="margin: 5px 0; padding-left: 20px;">
+                    
+                            <li>
+                                <strong>assertion_1</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的回复符合其角色设定</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则1: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_2</strong> (1.0权重):
+                                <span class="failed">0% (失败)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的说话风格保持一致</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则2: 有待改进...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_3</strong> (1.0权重):
+                                <span class="failed">0% (失败)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的价值观在对话中得到体现</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则3: 有待改进...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_4</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC没有出现角色矛盾的行为或言论</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则4: 满足要求...</span>
+                            </li>
+                        
+                            </ul>
+                        </div>
+                    
+                    </div>
+                
+                    <div class="grader-result">
+                        <strong>interaction_quality</strong>:
+                        <span class="failed">67.27% (失败)</span><br>
+                        <em>总体理由: NPC处理观点冲突时保持礼貌，但未能充分引导对话走向建设性讨论。...</em>
+                
+                        <div style="margin-top: 10px; padding-left: 20px; border-left: 2px solid #ccc;">
+                            <strong>评分准则详情:</strong>
+                            <ul style="margin: 5px 0; padding-left: 20px;">
+                    
+                            <li>
+                                <strong>assertion_1</strong> (1.0权重):
+                                <span class="failed">0% (失败)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">对话自然流畅</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则1: 有待改进...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_2</strong> (1.2权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的回应与玩家输入相关</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则2: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_3</strong> (1.5权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC能够理解玩家的意图</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则3: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_4</strong> (0.8权重):
+                                <span class="failed">0% (失败)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">对话能够持续进行，不会突然中断</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则4: 有待改进...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_5</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的回应有助于推动对话发展</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则5: 满足要求...</span>
+                            </li>
+                        
+                            </ul>
+                        </div>
+                    
+                    </div>
+                
+                    <div class="grader-result">
+                        <strong>basic_rules</strong>:
+                        <span class="passed">75.00% (通过)</span><br>
+                        <em>总体理由: NPC处理观点冲突时保持礼貌，但未能充分引导对话走向建设性讨论。...</em>
+                
+                        <div style="margin-top: 10px; padding-left: 20px; border-left: 2px solid #ccc;">
+                            <strong>评分准则详情:</strong>
+                            <ul style="margin: 5px 0; padding-left: 20px;">
+                    
+                            <li>
+                                <strong>assertion_1</strong> (2.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">不应包含脏话或侮辱性语言</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则1: 满足要求（模拟对话中无脏话）...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_2</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">回复长度应在10-500字符之间</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则2: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_3</strong> (1.0权重):
+                                <span class="failed">0% (失败)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">对于玩家的提问应给予回应</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则3: 有待改进...</span>
+                            </li>
+                        
+                            </ul>
+                        </div>
+                    
+                    </div>
+                
+                </div>
+
+                <h4>对话记录 (4 轮)</h4>
+                <div class="transcript">
+            
+                    <div class="turn">
+                        <span class="player">player:</span> 我觉得这个政策完全不合理，应该立即取消。
+                    </div>
+                
+                    <div class="turn">
+                        <span class="npc">npc:</span> 我理解你的担忧，但也许我们可以从不同角度看待这个问题。
+                    </div>
+                
+                    <div class="turn">
+                        <span class="player">player:</span> 有什么不同角度？这个政策明显有缺陷。
+                    </div>
+                
+                    <div class="turn">
+                        <span class="npc">npc:</span> 政策的制定通常考虑多方面因素，我们可以讨论如何改进而不是完全否定。
+                    </div>
+                
+                </div>
+            </div>
+            <hr style="margin: 30px 0; border: none; border-top: 1px solid #dee2e6;">
+            
+            <div class="scenario-details" id="details-4">
+                <h3>简单问答 (ID: simple_qa_001)</h3>
+                
+                <div class="npc-role" style="background: #f0f8ff; padding: 15px; border-radius: 6px; margin: 15px 0; border-left: 4px solid #007acc;">
+                    <h4>NPC角色设定</h4>
+                    <ul style="margin: 5px 0; padding-left: 20px;">
+                        <li><strong>角色名称</strong>: 友好的村民</li>
+                        <li><strong>性格</strong>: 热情友好，乐于助人</li>
+                        <li><strong>背景故事</strong>: 在这个村庄生活了30年，熟悉村里的每一个人和每一件事</li>
+                        <li><strong>说话风格</strong>: 亲切、温暖、充满关怀</li>
+                        <li><strong>价值观</strong>: 互助, 诚实, 善良, 社区精神</li>
+                    </ul>
+                </div>
+                
+                <div class="grading-results">
+                    <h4>评分结果</h4>
+            
+                    <div class="grader-result">
+                        <strong>character_consistency</strong>:
+                        <span class="passed">100.00% (通过)</span><br>
+                        <em>总体理由: NPC回答简单问题时准确清晰，但缺乏深度扩展。...</em>
+                
+                        <div style="margin-top: 10px; padding-left: 20px; border-left: 2px solid #ccc;">
+                            <strong>评分准则详情:</strong>
+                            <ul style="margin: 5px 0; padding-left: 20px;">
+                    
+                            <li>
+                                <strong>assertion_1</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的回复符合其角色设定</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则1: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_2</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的说话风格保持一致</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则2: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_3</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的价值观在对话中得到体现</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则3: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_4</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC没有出现角色矛盾的行为或言论</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则4: 满足要求...</span>
+                            </li>
+                        
+                            </ul>
+                        </div>
+                    
+                    </div>
+                
+                    <div class="grader-result">
+                        <strong>interaction_quality</strong>:
+                        <span class="passed">100.00% (通过)</span><br>
+                        <em>总体理由: NPC回答简单问题时准确清晰，但缺乏深度扩展。...</em>
+                
+                        <div style="margin-top: 10px; padding-left: 20px; border-left: 2px solid #ccc;">
+                            <strong>评分准则详情:</strong>
+                            <ul style="margin: 5px 0; padding-left: 20px;">
+                    
+                            <li>
+                                <strong>assertion_1</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">对话自然流畅</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则1: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_2</strong> (1.2权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的回应与玩家输入相关</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则2: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_3</strong> (1.5权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC能够理解玩家的意图</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则3: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_4</strong> (0.8权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">对话能够持续进行，不会突然中断</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则4: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_5</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">NPC的回应有助于推动对话发展</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则5: 满足要求...</span>
+                            </li>
+                        
+                            </ul>
+                        </div>
+                    
+                    </div>
+                
+                    <div class="grader-result">
+                        <strong>basic_rules</strong>:
+                        <span class="passed">100.00% (通过)</span><br>
+                        <em>总体理由: NPC回答简单问题时准确清晰，但缺乏深度扩展。...</em>
+                
+                        <div style="margin-top: 10px; padding-left: 20px; border-left: 2px solid #ccc;">
+                            <strong>评分准则详情:</strong>
+                            <ul style="margin: 5px 0; padding-left: 20px;">
+                    
+                            <li>
+                                <strong>assertion_1</strong> (2.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">不应包含脏话或侮辱性语言</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则1: 满足要求（模拟对话中无脏话）...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_2</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">回复长度应在10-500字符之间</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则2: 满足要求...</span>
+                            </li>
+                        
+                            <li>
+                                <strong>assertion_3</strong> (1.0权重):
+                                <span class="passed">100% (通过)</span><br>
+                                <span style="font-size: 0.9em; color: #666;">对于玩家的提问应给予回应</span><br>
+                                <span style="font-size: 0.85em; color: #888;">理由: 准则3: 满足要求...</span>
+                            </li>
+                        
+                            </ul>
+                        </div>
+                    
+                    </div>
+                
+                </div>
+
+                <h4>对话记录 (4 轮)</h4>
+                <div class="transcript">
+            
+                    <div class="turn">
+                        <span class="player">player:</span> 请问现在几点了？
+                    </div>
+                
+                    <div class="turn">
+                        <span class="npc">npc:</span> 现在是下午3点。
+                    </div>
+                
+                    <div class="turn">
+                        <span class="player">player:</span> 图书馆在哪里？
+                    </div>
+                
+                    <div class="turn">
+                        <span class="npc">npc:</span> 图书馆在村庄广场的北侧。
+                    </div>
+                
+                </div>
+            </div>
+            <hr style="margin: 30px 0; border: none; border-top: 1px solid #dee2e6;">
+            
+        </div>
+
+        <!-- 统计信息 -->
+        <div class="details-section">
+            <h2>统计信息</h2>
+            <div id="statistics"></div>
+        </div>
+
+        <!-- JavaScript -->
+        <script>
+            // 初始隐藏所有详细结果
+            document.addEventListener('DOMContentLoaded', function() {
+                const details = document.querySelectorAll('.scenario-details');
+                details.forEach((detail, index) => {
+                    if (index > 0) {  // 第一个展开，其他折叠
+                        detail.style.display = 'none';
+                    }
+                });
+
+                // 添加简单的统计图表（使用控制台日志，实际项目中可使用Chart.js等）
+                const scores = [1.000, 0.855, 0.727, 0.619, 1.000];
+                console.log('评测分数分布:', scores);
+            });
+
+            function toggleAllDetails() {
+                const details = document.querySelectorAll('.scenario-details');
+                const isHidden = details[1].style.display === 'none';
+
+                details.forEach(detail => {
+                    detail.style.display = isHidden ? 'block' : 'none';
+                });
+            }
+
+            function toggleDetails(id) {
+                const detail = document.getElementById('details-' + id);
+                detail.style.display = detail.style.display === 'none' ? 'block' : 'none';
+            }
+        </script>
+
+        <div class="footer">
+            <p>生成时间: {self.timestamp} | AI Agent评测系统 v1.0.0</p>
+            <p>报告ID: {self.run_id} | 更多信息请查看JSON详细报告</p>
+        </div>
+    </div>
+</body>
+</html>
+        

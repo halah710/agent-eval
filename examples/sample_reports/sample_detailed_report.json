@@ -1,0 +1,1672 @@
+{
+  "metadata": {
+    "run_id": "sample_run_20260121_231324",
+    "timestamp": "2026-01-21T23:13:24.661672",
+    "generator": "agent-eval-sample-generator",
+    "version": "1.0.0",
+    "note": "这是一个示例评测报告，包含模拟数据用于演示系统能力"
+  },
+  "summary": {
+    "total_scenarios": 5,
+    "passed_scenarios": 4,
+    "failed_scenarios": 1,
+    "average_score": 0.8401818181818183,
+    "min_score": 0.6190909090909091,
+    "max_score": 1.0,
+    "total_duration": 25.0,
+    "suite_type": "capability",
+    "run_id": "sample_run",
+    "timestamp": "2026-01-21T23:13:24.661672"
+  },
+  "test_suite": {
+    "id": "sample_suite",
+    "name": "示例评测套件",
+    "description": "包含5个不同场景的示例评测套件，展示系统能力",
+    "suite_type": "capability",
+    "scenarios": [
+      {
+        "id": "basic_greeting_001",
+        "name": "基础问候",
+        "description": "最基本的问候场景，用于回归测试确保核心功能正常",
+        "scenario_type": "daily_chat",
+        "player_profile": {
+          "name": "测试玩家",
+          "personality": "friendly",
+          "age": 20,
+          "background": "测试用玩家角色",
+          "interests": [
+            "测试"
+          ],
+          "speaking_style": "简单、直接",
+          "knowledge_level": 3,
+          "emotional_state": "neutral"
+        },
+        "initial_prompt": "你好！",
+        "max_turns": 3,
+        "expected_outcomes": [
+          "NPC能够回应问候",
+          "对话能够正常开始",
+          "没有技术错误",
+          "基本对话流程正常"
+        ],
+        "reference_solution": {
+          "description": "最简单的基础对话",
+          "transcript": [
+            {
+              "speaker": "player",
+              "message": "你好！"
+            },
+            {
+              "speaker": "npc",
+              "message": "你好！很高兴见到你。"
+            },
+            {
+              "speaker": "player",
+              "message": "今天天气不错。"
+            },
+            {
+              "speaker": "npc",
+              "message": "是的，是个好天气。"
+            }
+          ],
+          "success_factors": [
+            "能够理解并回应简单问候",
+            "对话流程正常",
+            "没有技术错误"
+          ]
+        },
+        "metadata": {
+          "difficulty": "very_easy",
+          "expected_duration": "1-2分钟",
+          "tags": [
+            "regression",
+            "basic",
+            "greeting"
+          ],
+          "regression_test": true
+        }
+      },
+      {
+        "id": "daily_chat_001",
+        "name": "日常问候聊天",
+        "description": "测试NPC在日常问候场景中的表现",
+        "scenario_type": "daily_chat",
+        "player_profile": {
+          "name": "普通玩家",
+          "personality": "friendly",
+          "age": 25,
+          "background": "刚来到这个村庄的旅行者",
+          "interests": [
+            "旅行",
+            "美食",
+            "音乐"
+          ],
+          "speaking_style": "礼貌、友好",
+          "knowledge_level": 5,
+          "emotional_state": "neutral"
+        },
+        "initial_prompt": "你好！今天天气真不错，你是这个村的村民吗？",
+        "max_turns": 5,
+        "expected_outcomes": [
+          "NPC能够友好地回应问候",
+          "NPC能够介绍自己的身份",
+          "对话自然流畅",
+          "NPC能够询问玩家的来意或介绍村庄"
+        ],
+        "reference_solution": {
+          "description": "理想的对话示例",
+          "transcript": [
+            {
+              "speaker": "player",
+              "message": "你好！今天天气真不错，你是这个村的村民吗？"
+            },
+            {
+              "speaker": "npc",
+              "message": "你好！是的，我在这里生活了很多年。今天天气确实很好，很适合散步。你是第一次来我们村吗？"
+            },
+            {
+              "speaker": "player",
+              "message": "是的，我是旅行者，刚到这里。能给我介绍一下这个村吗？"
+            },
+            {
+              "speaker": "npc",
+              "message": "当然！我们村以友善的村民和美丽的风景闻名。那边的小山是看日落的最佳地点，还有村里的市集有很多当地特产。"
+            },
+            {
+              "speaker": "player",
+              "message": "听起来很棒！我一定会去看看的。谢谢你的介绍！"
+            }
+          ],
+          "success_factors": [
+            "友好回应问候",
+            "自然介绍身份",
+            "主动提供信息",
+            "保持对话流畅"
+          ]
+        },
+        "metadata": {
+          "difficulty": "easy",
+          "expected_duration": "2-3分钟",
+          "tags": [
+            "greeting",
+            "introduction",
+            "small_talk"
+          ]
+        }
+      },
+      {
+        "id": "emotional_support_001",
+        "name": "情感倾诉与支持",
+        "description": "测试NPC在情感支持场景中的表现，玩家倾诉烦恼，期望获得理解和支持",
+        "scenario_type": "emotional_support",
+        "player_profile": {
+          "name": "烦恼的玩家",
+          "personality": "shy",
+          "age": 28,
+          "background": "工作压力大的上班族",
+          "interests": [
+            "阅读",
+            "冥想",
+            "散步"
+          ],
+          "speaking_style": "犹豫、略带忧虑",
+          "knowledge_level": 6,
+          "emotional_state": "sad"
+        },
+        "initial_prompt": "最近工作压力好大，感觉有点撑不下去了...",
+        "max_turns": 6,
+        "expected_outcomes": [
+          "NPC能够表达理解和同情",
+          "NPC能够提供情感支持",
+          "NPC的回应不会过于冷漠或敷衍",
+          "NPC能够根据角色设定提供适当的建议",
+          "对话让玩家感受到被理解和关怀"
+        ],
+        "reference_solution": {
+          "description": "理想的情感支持对话示例",
+          "transcript": [
+            {
+              "speaker": "player",
+              "message": "最近工作压力好大，感觉有点撑不下去了..."
+            },
+            {
+              "speaker": "npc",
+              "message": "听起来真的很不容易。工作压力大确实会让人感到疲惫，你能具体说说是什么让你感到压力吗？"
+            },
+            {
+              "speaker": "player",
+              "message": "项目 deadline 很紧，团队合作也不顺利，感觉所有事都堆在一起了。"
+            },
+            {
+              "speaker": "npc",
+              "message": "同时处理多个压力源确实很困难。我以前也经历过类似的情况，有时候把问题拆解成小部分会更容易处理。"
+            },
+            {
+              "speaker": "player",
+              "message": "我也试过，但还是感觉 overwhelmed..."
+            },
+            {
+              "speaker": "npc",
+              "message": "我理解这种感觉。记住，照顾好自己的身心健康同样重要。适当的休息和与人倾诉都能帮助你更好地应对压力。"
+            },
+            {
+              "speaker": "player",
+              "message": "谢谢你听我说这些，感觉好多了。"
+            }
+          ],
+          "success_factors": [
+            "表达理解和同情",
+            "提供具体的情感支持",
+            "避免给出过于简单的建议",
+            "保持支持性和非评判性态度",
+            "鼓励玩家表达感受"
+          ]
+        },
+        "metadata": {
+          "difficulty": "medium",
+          "expected_duration": "3-5分钟",
+          "tags": [
+            "emotional_support",
+            "empathy",
+            "counseling"
+          ],
+          "sensitive_topic": true
+        }
+      },
+      {
+        "id": "opinion_conflict_001",
+        "name": "观点分歧与辩论",
+        "description": "测试NPC在观点冲突场景中的表现，玩家提出不同意见，观察NPC如何处理分歧",
+        "scenario_type": "opinion_conflict",
+        "player_profile": {
+          "name": "挑战性玩家",
+          "personality": "aggressive",
+          "age": 30,
+          "background": "喜欢辩论和挑战传统观点",
+          "interests": [
+            "哲学",
+            "辩论",
+            "政治"
+          ],
+          "speaking_style": "直接、挑战性",
+          "knowledge_level": 7,
+          "emotional_state": "angry"
+        },
+        "initial_prompt": "我觉得这个村的传统节日太老套了，应该彻底改革！",
+        "max_turns": 6,
+        "expected_outcomes": [
+          "NPC能够保持角色一致性，即使面对挑战",
+          "NPC能够理性回应不同观点",
+          "NPC的回应不会变得敌对或情绪化",
+          "NPC能够解释传统的重要性",
+          "对话能够保持建设性，而非变成争吵"
+        ],
+        "reference_solution": {
+          "description": "理想的观点冲突处理示例",
+          "transcript": [
+            {
+              "speaker": "player",
+              "message": "我觉得这个村的传统节日太老套了，应该彻底改革！"
+            },
+            {
+              "speaker": "npc",
+              "message": "这真是个有意思的观点。作为在这里生活多年的人，我理解传统可能看起来有些老套，但它们对我们社区有特殊的意义。"
+            },
+            {
+              "speaker": "player",
+              "message": "特殊意义？不就是些过时的习俗吗？"
+            },
+            {
+              "speaker": "npc",
+              "message": "我理解你的看法。这些传统确实历史悠久，但它们连接着我们的过去和现在。每个习俗背后都有其历史和文化意义。"
+            },
+            {
+              "speaker": "player",
+              "message": "但时代在变，传统也应该与时俱进。"
+            },
+            {
+              "speaker": "npc",
+              "message": "你说得对，传统确实需要适应时代。事实上，我们也在逐渐加入新的元素，同时保留核心的传统价值。平衡传统与创新是个持续的对话。"
+            },
+            {
+              "speaker": "player",
+              "message": "好吧，至少你们在考虑改变，这还不错。"
+            }
+          ],
+          "success_factors": [
+            "保持冷静和专业",
+            "承认并尊重不同观点",
+            "解释传统价值而不强加",
+            "展示开放性和灵活性",
+            "保持对话的建设性"
+          ]
+        },
+        "metadata": {
+          "difficulty": "hard",
+          "expected_duration": "3-5分钟",
+          "tags": [
+            "debate",
+            "conflict_resolution",
+            "cultural_sensitivity"
+          ],
+          "potential_conflict": true
+        }
+      },
+      {
+        "id": "simple_qa_001",
+        "name": "简单问答",
+        "description": "测试NPC回答简单问题的能力，用于回归测试",
+        "scenario_type": "knowledge_test",
+        "player_profile": {
+          "name": "好奇玩家",
+          "personality": "curious",
+          "age": 22,
+          "background": "喜欢学习新知识",
+          "interests": [
+            "学习",
+            "探索"
+          ],
+          "speaking_style": "好奇、提问",
+          "knowledge_level": 4,
+          "emotional_state": "neutral"
+        },
+        "initial_prompt": "你能告诉我这个村有多少年历史了吗？",
+        "max_turns": 4,
+        "expected_outcomes": [
+          "NPC能够理解问题",
+          "NPC能够提供相关回答",
+          "回答与角色设定一致",
+          "对话逻辑连贯"
+        ],
+        "reference_solution": {
+          "description": "简单的问答对话",
+          "transcript": [
+            {
+              "speaker": "player",
+              "message": "你能告诉我这个村有多少年历史了吗？"
+            },
+            {
+              "speaker": "npc",
+              "message": "当然！根据村里的记载，我们这个村庄已经有200多年的历史了。"
+            },
+            {
+              "speaker": "player",
+              "message": "200多年？那真是历史悠久。有什么特别的历史故事吗？"
+            },
+            {
+              "speaker": "npc",
+              "message": "是的，村里最古老的建筑是中央广场的钟楼，它见证了村庄的许多重要时刻。"
+            }
+          ],
+          "success_factors": [
+            "能够理解并回答问题",
+            "回答与角色知识一致",
+            "能够提供额外相关信息",
+            "对话自然流畅"
+          ]
+        },
+        "metadata": {
+          "difficulty": "easy",
+          "expected_duration": "2-3分钟",
+          "tags": [
+            "regression",
+            "qa",
+            "knowledge"
+          ],
+          "regression_test": true
+        }
+      }
+    ],
+    "metadata": {
+      "generated_at": "2026-01-21T23:13:24.660669",
+      "total_scenarios": 5,
+      "purpose": "示例演示"
+    }
+  },
+  "detailed_results": [
+    {
+      "scenario_id": "basic_greeting_001",
+      "scenario_name": "基础问候",
+      "start_time": 1769008374.6606688,
+      "end_time": 1769008399.6606688,
+      "transcript": [
+        {
+          "speaker": "player",
+          "message": "你好！",
+          "timestamp": 1769008394.6606688
+        },
+        {
+          "speaker": "npc",
+          "message": "你好！",
+          "timestamp": 1769008395.6606688
+        },
+        {
+          "speaker": "player",
+          "message": "你好吗？",
+          "timestamp": 1769008396.6606688
+        },
+        {
+          "speaker": "npc",
+          "message": "我很好，谢谢！",
+          "timestamp": 1769008397.6606688
+        }
+      ],
+      "grading_results": {
+        "character_consistency": {
+          "grader_name": "character_consistency",
+          "score": 1.0,
+          "passed": true,
+          "evidence": [
+            {
+              "evidence_type": "llm_analysis",
+              "content": "基于对话内容的分析，NPC在基础问候场景中表现优秀，回复快速准确。",
+              "relevance": 1.0,
+              "source_indices": [
+                0,
+                1,
+                2
+              ],
+              "metadata": {}
+            }
+          ],
+          "reasoning": "NPC在基础问候场景中表现优秀，回复快速准确。",
+          "confidence": 1.0,
+          "metadata": {
+            "evaluation_time": "2026-01-21T23:13:24.660669",
+            "scenario_id": "basic_greeting_001",
+            "base_score": 0.95,
+            "calculated_score": 1.0
+          },
+          "criteria_results": {
+            "assertion_1": {
+              "criterion_name": "assertion_1",
+              "criterion_description": "NPC的回复符合其角色设定",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则1: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_2": {
+              "criterion_name": "assertion_2",
+              "criterion_description": "NPC的说话风格保持一致",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则2: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_3": {
+              "criterion_name": "assertion_3",
+              "criterion_description": "NPC的价值观在对话中得到体现",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则3: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_4": {
+              "criterion_name": "assertion_4",
+              "criterion_description": "NPC没有出现角色矛盾的行为或言论",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则4: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            }
+          }
+        },
+        "interaction_quality": {
+          "grader_name": "interaction_quality",
+          "score": 1.0,
+          "passed": true,
+          "evidence": [
+            {
+              "evidence_type": "llm_analysis",
+              "content": "基于对话内容的分析，NPC在基础问候场景中表现优秀，回复快速准确。",
+              "relevance": 1.0,
+              "source_indices": [
+                0,
+                1,
+                2
+              ],
+              "metadata": {}
+            }
+          ],
+          "reasoning": "NPC在基础问候场景中表现优秀，回复快速准确。",
+          "confidence": 1.0,
+          "metadata": {
+            "evaluation_time": "2026-01-21T23:13:24.660669",
+            "scenario_id": "basic_greeting_001",
+            "base_score": 0.95,
+            "calculated_score": 1.0
+          },
+          "criteria_results": {
+            "assertion_1": {
+              "criterion_name": "assertion_1",
+              "criterion_description": "对话自然流畅",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则1: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_2": {
+              "criterion_name": "assertion_2",
+              "criterion_description": "NPC的回应与玩家输入相关",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则2: 满足要求",
+              "evidence": [],
+              "weight": 1.2
+            },
+            "assertion_3": {
+              "criterion_name": "assertion_3",
+              "criterion_description": "NPC能够理解玩家的意图",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则3: 满足要求",
+              "evidence": [],
+              "weight": 1.5
+            },
+            "assertion_4": {
+              "criterion_name": "assertion_4",
+              "criterion_description": "对话能够持续进行，不会突然中断",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则4: 满足要求",
+              "evidence": [],
+              "weight": 0.8
+            },
+            "assertion_5": {
+              "criterion_name": "assertion_5",
+              "criterion_description": "NPC的回应有助于推动对话发展",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则5: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            }
+          }
+        },
+        "basic_rules": {
+          "grader_name": "basic_rules",
+          "score": 1.0,
+          "passed": true,
+          "evidence": [
+            {
+              "evidence_type": "llm_analysis",
+              "content": "基于对话内容的分析，NPC在基础问候场景中表现优秀，回复快速准确。",
+              "relevance": 1.0,
+              "source_indices": [
+                0,
+                1,
+                2
+              ],
+              "metadata": {}
+            }
+          ],
+          "reasoning": "NPC在基础问候场景中表现优秀，回复快速准确。",
+          "confidence": 1.0,
+          "metadata": {
+            "evaluation_time": "2026-01-21T23:13:24.660669",
+            "scenario_id": "basic_greeting_001",
+            "base_score": 0.95,
+            "calculated_score": 1.0
+          },
+          "criteria_results": {
+            "assertion_1": {
+              "criterion_name": "assertion_1",
+              "criterion_description": "不应包含脏话或侮辱性语言",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则1: 满足要求（模拟对话中无脏话）",
+              "evidence": [],
+              "weight": 2.0
+            },
+            "assertion_2": {
+              "criterion_name": "assertion_2",
+              "criterion_description": "回复长度应在10-500字符之间",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则2: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_3": {
+              "criterion_name": "assertion_3",
+              "criterion_description": "对于玩家的提问应给予回应",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则3: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            }
+          }
+        }
+      },
+      "final_score": 1.0,
+      "passed": true,
+      "errors": [],
+      "metadata": {
+        "scenario_type": "daily_chat",
+        "random_seed": 42,
+        "agent_type": "mock",
+        "evaluation_time": "2026-01-21T23:13:24.660669",
+        "npc_role": {
+          "name": "友好的村民",
+          "personality": "热情友好，乐于助人",
+          "background": "在这个村庄生活了30年，熟悉村里的每一个人和每一件事",
+          "speaking_style": "亲切、温暖、充满关怀",
+          "values": [
+            "互助",
+            "诚实",
+            "善良",
+            "社区精神"
+          ]
+        }
+      },
+      "duration": 25.0
+    },
+    {
+      "scenario_id": "daily_chat_001",
+      "scenario_name": "日常问候聊天",
+      "start_time": 1769008374.6606688,
+      "end_time": 1769008399.6606688,
+      "transcript": [
+        {
+          "speaker": "player",
+          "message": "嗨，你好！今天天气真不错，你经常来这里散步吗？",
+          "timestamp": 1769008394.6606688
+        },
+        {
+          "speaker": "npc",
+          "message": "你好！是的，我几乎每天都会来这个公园散步。今天天气确实很适合户外活动。",
+          "timestamp": 1769008395.6606688
+        },
+        {
+          "speaker": "player",
+          "message": "听起来很棒！我最近刚搬到这附近，有什么推荐的餐馆或咖啡馆吗？",
+          "timestamp": 1769008396.6606688
+        },
+        {
+          "speaker": "npc",
+          "message": "当然！街角那家'阳光咖啡馆'的咖啡很不错，还有'老街餐馆'的传统菜也很受欢迎。",
+          "timestamp": 1769008397.6606688
+        }
+      ],
+      "grading_results": {
+        "character_consistency": {
+          "grader_name": "character_consistency",
+          "score": 1.0,
+          "passed": true,
+          "evidence": [
+            {
+              "evidence_type": "llm_analysis",
+              "content": "基于对话内容的分析，NPC在日常聊天中表现良好，友好亲切，对话自然流畅。",
+              "relevance": 1.0,
+              "source_indices": [
+                0,
+                1,
+                2
+              ],
+              "metadata": {}
+            }
+          ],
+          "reasoning": "NPC在日常聊天中表现良好，友好亲切，对话自然流畅。",
+          "confidence": 1.0,
+          "metadata": {
+            "evaluation_time": "2026-01-21T23:13:24.660669",
+            "scenario_id": "daily_chat_001",
+            "base_score": 0.85,
+            "calculated_score": 1.0
+          },
+          "criteria_results": {
+            "assertion_1": {
+              "criterion_name": "assertion_1",
+              "criterion_description": "NPC的回复符合其角色设定",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则1: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_2": {
+              "criterion_name": "assertion_2",
+              "criterion_description": "NPC的说话风格保持一致",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则2: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_3": {
+              "criterion_name": "assertion_3",
+              "criterion_description": "NPC的价值观在对话中得到体现",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则3: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_4": {
+              "criterion_name": "assertion_4",
+              "criterion_description": "NPC没有出现角色矛盾的行为或言论",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则4: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            }
+          }
+        },
+        "interaction_quality": {
+          "grader_name": "interaction_quality",
+          "score": 0.6363636363636364,
+          "passed": false,
+          "evidence": [
+            {
+              "evidence_type": "llm_analysis",
+              "content": "基于对话内容的分析，NPC在日常聊天中表现良好，友好亲切，对话自然流畅。",
+              "relevance": 1.0,
+              "source_indices": [
+                0,
+                1,
+                2
+              ],
+              "metadata": {}
+            }
+          ],
+          "reasoning": "NPC在日常聊天中表现良好，友好亲切，对话自然流畅。",
+          "confidence": 1.0,
+          "metadata": {
+            "evaluation_time": "2026-01-21T23:13:24.660669",
+            "scenario_id": "daily_chat_001",
+            "base_score": 0.85,
+            "calculated_score": 0.6363636363636364
+          },
+          "criteria_results": {
+            "assertion_1": {
+              "criterion_name": "assertion_1",
+              "criterion_description": "对话自然流畅",
+              "score": 0.0,
+              "passed": false,
+              "reasoning": "准则1: 有待改进",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_2": {
+              "criterion_name": "assertion_2",
+              "criterion_description": "NPC的回应与玩家输入相关",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则2: 满足要求",
+              "evidence": [],
+              "weight": 1.2
+            },
+            "assertion_3": {
+              "criterion_name": "assertion_3",
+              "criterion_description": "NPC能够理解玩家的意图",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则3: 满足要求",
+              "evidence": [],
+              "weight": 1.5
+            },
+            "assertion_4": {
+              "criterion_name": "assertion_4",
+              "criterion_description": "对话能够持续进行，不会突然中断",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则4: 满足要求",
+              "evidence": [],
+              "weight": 0.8
+            },
+            "assertion_5": {
+              "criterion_name": "assertion_5",
+              "criterion_description": "NPC的回应有助于推动对话发展",
+              "score": 0.0,
+              "passed": false,
+              "reasoning": "准则5: 有待改进",
+              "evidence": [],
+              "weight": 1.0
+            }
+          }
+        },
+        "basic_rules": {
+          "grader_name": "basic_rules",
+          "score": 1.0,
+          "passed": true,
+          "evidence": [
+            {
+              "evidence_type": "llm_analysis",
+              "content": "基于对话内容的分析，NPC在日常聊天中表现良好，友好亲切，对话自然流畅。",
+              "relevance": 1.0,
+              "source_indices": [
+                0,
+                1,
+                2
+              ],
+              "metadata": {}
+            }
+          ],
+          "reasoning": "NPC在日常聊天中表现良好，友好亲切，对话自然流畅。",
+          "confidence": 1.0,
+          "metadata": {
+            "evaluation_time": "2026-01-21T23:13:24.660669",
+            "scenario_id": "daily_chat_001",
+            "base_score": 0.85,
+            "calculated_score": 1.0
+          },
+          "criteria_results": {
+            "assertion_1": {
+              "criterion_name": "assertion_1",
+              "criterion_description": "不应包含脏话或侮辱性语言",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则1: 满足要求（模拟对话中无脏话）",
+              "evidence": [],
+              "weight": 2.0
+            },
+            "assertion_2": {
+              "criterion_name": "assertion_2",
+              "criterion_description": "回复长度应在10-500字符之间",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则2: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_3": {
+              "criterion_name": "assertion_3",
+              "criterion_description": "对于玩家的提问应给予回应",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则3: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            }
+          }
+        }
+      },
+      "final_score": 0.8545454545454545,
+      "passed": true,
+      "errors": [],
+      "metadata": {
+        "scenario_type": "daily_chat",
+        "random_seed": 42,
+        "agent_type": "mock",
+        "evaluation_time": "2026-01-21T23:13:24.660669",
+        "npc_role": {
+          "name": "友好的村民",
+          "personality": "热情友好，乐于助人",
+          "background": "在这个村庄生活了30年，熟悉村里的每一个人和每一件事",
+          "speaking_style": "亲切、温暖、充满关怀",
+          "values": [
+            "互助",
+            "诚实",
+            "善良",
+            "社区精神"
+          ]
+        }
+      },
+      "duration": 25.0
+    },
+    {
+      "scenario_id": "emotional_support_001",
+      "scenario_name": "情感倾诉与支持",
+      "start_time": 1769008374.6606688,
+      "end_time": 1769008399.6606688,
+      "transcript": [
+        {
+          "speaker": "player",
+          "message": "我今天心情很不好，工作压力太大了。",
+          "timestamp": 1769008394.6606688
+        },
+        {
+          "speaker": "npc",
+          "message": "听起来你今天过得很辛苦，工作压力确实会让人感到疲惫。",
+          "timestamp": 1769008395.6606688
+        },
+        {
+          "speaker": "player",
+          "message": "是的，我觉得自己快撑不住了。",
+          "timestamp": 1769008396.6606688
+        },
+        {
+          "speaker": "npc",
+          "message": "每个人都有压力大的时候，重要的是找到适合自己的放松方式。",
+          "timestamp": 1769008397.6606688
+        }
+      ],
+      "grading_results": {
+        "character_consistency": {
+          "grader_name": "character_consistency",
+          "score": 0.5,
+          "passed": false,
+          "evidence": [
+            {
+              "evidence_type": "llm_analysis",
+              "content": "基于对话内容的分析，NPC在情感支持方面有一定表现，但共情深度有待提升。",
+              "relevance": 1.0,
+              "source_indices": [
+                0,
+                1,
+                2
+              ],
+              "metadata": {}
+            }
+          ],
+          "reasoning": "NPC在情感支持方面有一定表现，但共情深度有待提升。",
+          "confidence": 1.0,
+          "metadata": {
+            "evaluation_time": "2026-01-21T23:13:24.660669",
+            "scenario_id": "emotional_support_001",
+            "base_score": 0.72,
+            "calculated_score": 0.5
+          },
+          "criteria_results": {
+            "assertion_1": {
+              "criterion_name": "assertion_1",
+              "criterion_description": "NPC的回复符合其角色设定",
+              "score": 0.0,
+              "passed": false,
+              "reasoning": "准则1: 有待改进",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_2": {
+              "criterion_name": "assertion_2",
+              "criterion_description": "NPC的说话风格保持一致",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则2: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_3": {
+              "criterion_name": "assertion_3",
+              "criterion_description": "NPC的价值观在对话中得到体现",
+              "score": 0.0,
+              "passed": false,
+              "reasoning": "准则3: 有待改进",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_4": {
+              "criterion_name": "assertion_4",
+              "criterion_description": "NPC没有出现角色矛盾的行为或言论",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则4: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            }
+          }
+        },
+        "interaction_quality": {
+          "grader_name": "interaction_quality",
+          "score": 0.8181818181818182,
+          "passed": true,
+          "evidence": [
+            {
+              "evidence_type": "llm_analysis",
+              "content": "基于对话内容的分析，NPC在情感支持方面有一定表现，但共情深度有待提升。",
+              "relevance": 1.0,
+              "source_indices": [
+                0,
+                1,
+                2
+              ],
+              "metadata": {}
+            }
+          ],
+          "reasoning": "NPC在情感支持方面有一定表现，但共情深度有待提升。",
+          "confidence": 1.0,
+          "metadata": {
+            "evaluation_time": "2026-01-21T23:13:24.660669",
+            "scenario_id": "emotional_support_001",
+            "base_score": 0.72,
+            "calculated_score": 0.8181818181818182
+          },
+          "criteria_results": {
+            "assertion_1": {
+              "criterion_name": "assertion_1",
+              "criterion_description": "对话自然流畅",
+              "score": 0.0,
+              "passed": false,
+              "reasoning": "准则1: 有待改进",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_2": {
+              "criterion_name": "assertion_2",
+              "criterion_description": "NPC的回应与玩家输入相关",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则2: 满足要求",
+              "evidence": [],
+              "weight": 1.2
+            },
+            "assertion_3": {
+              "criterion_name": "assertion_3",
+              "criterion_description": "NPC能够理解玩家的意图",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则3: 满足要求",
+              "evidence": [],
+              "weight": 1.5
+            },
+            "assertion_4": {
+              "criterion_name": "assertion_4",
+              "criterion_description": "对话能够持续进行，不会突然中断",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则4: 满足要求",
+              "evidence": [],
+              "weight": 0.8
+            },
+            "assertion_5": {
+              "criterion_name": "assertion_5",
+              "criterion_description": "NPC的回应有助于推动对话发展",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则5: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            }
+          }
+        },
+        "basic_rules": {
+          "grader_name": "basic_rules",
+          "score": 1.0,
+          "passed": true,
+          "evidence": [
+            {
+              "evidence_type": "llm_analysis",
+              "content": "基于对话内容的分析，NPC在情感支持方面有一定表现，但共情深度有待提升。",
+              "relevance": 1.0,
+              "source_indices": [
+                0,
+                1,
+                2
+              ],
+              "metadata": {}
+            }
+          ],
+          "reasoning": "NPC在情感支持方面有一定表现，但共情深度有待提升。",
+          "confidence": 1.0,
+          "metadata": {
+            "evaluation_time": "2026-01-21T23:13:24.660669",
+            "scenario_id": "emotional_support_001",
+            "base_score": 0.72,
+            "calculated_score": 1.0
+          },
+          "criteria_results": {
+            "assertion_1": {
+              "criterion_name": "assertion_1",
+              "criterion_description": "不应包含脏话或侮辱性语言",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则1: 满足要求（模拟对话中无脏话）",
+              "evidence": [],
+              "weight": 2.0
+            },
+            "assertion_2": {
+              "criterion_name": "assertion_2",
+              "criterion_description": "回复长度应在10-500字符之间",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则2: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_3": {
+              "criterion_name": "assertion_3",
+              "criterion_description": "对于玩家的提问应给予回应",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则3: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            }
+          }
+        }
+      },
+      "final_score": 0.7272727272727273,
+      "passed": true,
+      "errors": [],
+      "metadata": {
+        "scenario_type": "emotional_support",
+        "random_seed": 42,
+        "agent_type": "mock",
+        "evaluation_time": "2026-01-21T23:13:24.660669",
+        "npc_role": {
+          "name": "友好的村民",
+          "personality": "热情友好，乐于助人",
+          "background": "在这个村庄生活了30年，熟悉村里的每一个人和每一件事",
+          "speaking_style": "亲切、温暖、充满关怀",
+          "values": [
+            "互助",
+            "诚实",
+            "善良",
+            "社区精神"
+          ]
+        }
+      },
+      "duration": 25.0
+    },
+    {
+      "scenario_id": "opinion_conflict_001",
+      "scenario_name": "观点分歧与辩论",
+      "start_time": 1769008374.6606688,
+      "end_time": 1769008399.6606688,
+      "transcript": [
+        {
+          "speaker": "player",
+          "message": "我觉得这个政策完全不合理，应该立即取消。",
+          "timestamp": 1769008394.6606688
+        },
+        {
+          "speaker": "npc",
+          "message": "我理解你的担忧，但也许我们可以从不同角度看待这个问题。",
+          "timestamp": 1769008395.6606688
+        },
+        {
+          "speaker": "player",
+          "message": "有什么不同角度？这个政策明显有缺陷。",
+          "timestamp": 1769008396.6606688
+        },
+        {
+          "speaker": "npc",
+          "message": "政策的制定通常考虑多方面因素，我们可以讨论如何改进而不是完全否定。",
+          "timestamp": 1769008397.6606688
+        }
+      ],
+      "grading_results": {
+        "character_consistency": {
+          "grader_name": "character_consistency",
+          "score": 0.5,
+          "passed": false,
+          "evidence": [
+            {
+              "evidence_type": "llm_analysis",
+              "content": "基于对话内容的分析，NPC处理观点冲突时保持礼貌，但未能充分引导对话走向建设性讨论。",
+              "relevance": 1.0,
+              "source_indices": [
+                0,
+                1,
+                2
+              ],
+              "metadata": {}
+            }
+          ],
+          "reasoning": "NPC处理观点冲突时保持礼貌，但未能充分引导对话走向建设性讨论。",
+          "confidence": 1.0,
+          "metadata": {
+            "evaluation_time": "2026-01-21T23:13:24.660669",
+            "scenario_id": "opinion_conflict_001",
+            "base_score": 0.65,
+            "calculated_score": 0.5
+          },
+          "criteria_results": {
+            "assertion_1": {
+              "criterion_name": "assertion_1",
+              "criterion_description": "NPC的回复符合其角色设定",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则1: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_2": {
+              "criterion_name": "assertion_2",
+              "criterion_description": "NPC的说话风格保持一致",
+              "score": 0.0,
+              "passed": false,
+              "reasoning": "准则2: 有待改进",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_3": {
+              "criterion_name": "assertion_3",
+              "criterion_description": "NPC的价值观在对话中得到体现",
+              "score": 0.0,
+              "passed": false,
+              "reasoning": "准则3: 有待改进",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_4": {
+              "criterion_name": "assertion_4",
+              "criterion_description": "NPC没有出现角色矛盾的行为或言论",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则4: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            }
+          }
+        },
+        "interaction_quality": {
+          "grader_name": "interaction_quality",
+          "score": 0.6727272727272727,
+          "passed": false,
+          "evidence": [
+            {
+              "evidence_type": "llm_analysis",
+              "content": "基于对话内容的分析，NPC处理观点冲突时保持礼貌，但未能充分引导对话走向建设性讨论。",
+              "relevance": 1.0,
+              "source_indices": [
+                0,
+                1,
+                2
+              ],
+              "metadata": {}
+            }
+          ],
+          "reasoning": "NPC处理观点冲突时保持礼貌，但未能充分引导对话走向建设性讨论。",
+          "confidence": 1.0,
+          "metadata": {
+            "evaluation_time": "2026-01-21T23:13:24.660669",
+            "scenario_id": "opinion_conflict_001",
+            "base_score": 0.65,
+            "calculated_score": 0.6727272727272727
+          },
+          "criteria_results": {
+            "assertion_1": {
+              "criterion_name": "assertion_1",
+              "criterion_description": "对话自然流畅",
+              "score": 0.0,
+              "passed": false,
+              "reasoning": "准则1: 有待改进",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_2": {
+              "criterion_name": "assertion_2",
+              "criterion_description": "NPC的回应与玩家输入相关",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则2: 满足要求",
+              "evidence": [],
+              "weight": 1.2
+            },
+            "assertion_3": {
+              "criterion_name": "assertion_3",
+              "criterion_description": "NPC能够理解玩家的意图",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则3: 满足要求",
+              "evidence": [],
+              "weight": 1.5
+            },
+            "assertion_4": {
+              "criterion_name": "assertion_4",
+              "criterion_description": "对话能够持续进行，不会突然中断",
+              "score": 0.0,
+              "passed": false,
+              "reasoning": "准则4: 有待改进",
+              "evidence": [],
+              "weight": 0.8
+            },
+            "assertion_5": {
+              "criterion_name": "assertion_5",
+              "criterion_description": "NPC的回应有助于推动对话发展",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则5: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            }
+          }
+        },
+        "basic_rules": {
+          "grader_name": "basic_rules",
+          "score": 0.75,
+          "passed": true,
+          "evidence": [
+            {
+              "evidence_type": "llm_analysis",
+              "content": "基于对话内容的分析，NPC处理观点冲突时保持礼貌，但未能充分引导对话走向建设性讨论。",
+              "relevance": 1.0,
+              "source_indices": [
+                0,
+                1,
+                2
+              ],
+              "metadata": {}
+            }
+          ],
+          "reasoning": "NPC处理观点冲突时保持礼貌，但未能充分引导对话走向建设性讨论。",
+          "confidence": 1.0,
+          "metadata": {
+            "evaluation_time": "2026-01-21T23:13:24.660669",
+            "scenario_id": "opinion_conflict_001",
+            "base_score": 0.65,
+            "calculated_score": 0.75
+          },
+          "criteria_results": {
+            "assertion_1": {
+              "criterion_name": "assertion_1",
+              "criterion_description": "不应包含脏话或侮辱性语言",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则1: 满足要求（模拟对话中无脏话）",
+              "evidence": [],
+              "weight": 2.0
+            },
+            "assertion_2": {
+              "criterion_name": "assertion_2",
+              "criterion_description": "回复长度应在10-500字符之间",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则2: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_3": {
+              "criterion_name": "assertion_3",
+              "criterion_description": "对于玩家的提问应给予回应",
+              "score": 0.0,
+              "passed": false,
+              "reasoning": "准则3: 有待改进",
+              "evidence": [],
+              "weight": 1.0
+            }
+          }
+        }
+      },
+      "final_score": 0.6190909090909091,
+      "passed": false,
+      "errors": [],
+      "metadata": {
+        "scenario_type": "opinion_conflict",
+        "random_seed": 42,
+        "agent_type": "mock",
+        "evaluation_time": "2026-01-21T23:13:24.660669",
+        "npc_role": {
+          "name": "友好的村民",
+          "personality": "热情友好，乐于助人",
+          "background": "在这个村庄生活了30年，熟悉村里的每一个人和每一件事",
+          "speaking_style": "亲切、温暖、充满关怀",
+          "values": [
+            "互助",
+            "诚实",
+            "善良",
+            "社区精神"
+          ]
+        }
+      },
+      "duration": 25.0
+    },
+    {
+      "scenario_id": "simple_qa_001",
+      "scenario_name": "简单问答",
+      "start_time": 1769008374.6606688,
+      "end_time": 1769008399.6606688,
+      "transcript": [
+        {
+          "speaker": "player",
+          "message": "请问现在几点了？",
+          "timestamp": 1769008394.6606688
+        },
+        {
+          "speaker": "npc",
+          "message": "现在是下午3点。",
+          "timestamp": 1769008395.6606688
+        },
+        {
+          "speaker": "player",
+          "message": "图书馆在哪里？",
+          "timestamp": 1769008396.6606688
+        },
+        {
+          "speaker": "npc",
+          "message": "图书馆在村庄广场的北侧。",
+          "timestamp": 1769008397.6606688
+        }
+      ],
+      "grading_results": {
+        "character_consistency": {
+          "grader_name": "character_consistency",
+          "score": 1.0,
+          "passed": true,
+          "evidence": [
+            {
+              "evidence_type": "llm_analysis",
+              "content": "基于对话内容的分析，NPC回答简单问题时准确清晰，但缺乏深度扩展。",
+              "relevance": 1.0,
+              "source_indices": [
+                0,
+                1,
+                2
+              ],
+              "metadata": {}
+            }
+          ],
+          "reasoning": "NPC回答简单问题时准确清晰，但缺乏深度扩展。",
+          "confidence": 1.0,
+          "metadata": {
+            "evaluation_time": "2026-01-21T23:13:24.660669",
+            "scenario_id": "simple_qa_001",
+            "base_score": 0.88,
+            "calculated_score": 1.0
+          },
+          "criteria_results": {
+            "assertion_1": {
+              "criterion_name": "assertion_1",
+              "criterion_description": "NPC的回复符合其角色设定",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则1: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_2": {
+              "criterion_name": "assertion_2",
+              "criterion_description": "NPC的说话风格保持一致",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则2: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_3": {
+              "criterion_name": "assertion_3",
+              "criterion_description": "NPC的价值观在对话中得到体现",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则3: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_4": {
+              "criterion_name": "assertion_4",
+              "criterion_description": "NPC没有出现角色矛盾的行为或言论",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则4: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            }
+          }
+        },
+        "interaction_quality": {
+          "grader_name": "interaction_quality",
+          "score": 1.0,
+          "passed": true,
+          "evidence": [
+            {
+              "evidence_type": "llm_analysis",
+              "content": "基于对话内容的分析，NPC回答简单问题时准确清晰，但缺乏深度扩展。",
+              "relevance": 1.0,
+              "source_indices": [
+                0,
+                1,
+                2
+              ],
+              "metadata": {}
+            }
+          ],
+          "reasoning": "NPC回答简单问题时准确清晰，但缺乏深度扩展。",
+          "confidence": 1.0,
+          "metadata": {
+            "evaluation_time": "2026-01-21T23:13:24.660669",
+            "scenario_id": "simple_qa_001",
+            "base_score": 0.88,
+            "calculated_score": 1.0
+          },
+          "criteria_results": {
+            "assertion_1": {
+              "criterion_name": "assertion_1",
+              "criterion_description": "对话自然流畅",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则1: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_2": {
+              "criterion_name": "assertion_2",
+              "criterion_description": "NPC的回应与玩家输入相关",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则2: 满足要求",
+              "evidence": [],
+              "weight": 1.2
+            },
+            "assertion_3": {
+              "criterion_name": "assertion_3",
+              "criterion_description": "NPC能够理解玩家的意图",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则3: 满足要求",
+              "evidence": [],
+              "weight": 1.5
+            },
+            "assertion_4": {
+              "criterion_name": "assertion_4",
+              "criterion_description": "对话能够持续进行，不会突然中断",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则4: 满足要求",
+              "evidence": [],
+              "weight": 0.8
+            },
+            "assertion_5": {
+              "criterion_name": "assertion_5",
+              "criterion_description": "NPC的回应有助于推动对话发展",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则5: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            }
+          }
+        },
+        "basic_rules": {
+          "grader_name": "basic_rules",
+          "score": 1.0,
+          "passed": true,
+          "evidence": [
+            {
+              "evidence_type": "llm_analysis",
+              "content": "基于对话内容的分析，NPC回答简单问题时准确清晰，但缺乏深度扩展。",
+              "relevance": 1.0,
+              "source_indices": [
+                0,
+                1,
+                2
+              ],
+              "metadata": {}
+            }
+          ],
+          "reasoning": "NPC回答简单问题时准确清晰，但缺乏深度扩展。",
+          "confidence": 1.0,
+          "metadata": {
+            "evaluation_time": "2026-01-21T23:13:24.660669",
+            "scenario_id": "simple_qa_001",
+            "base_score": 0.88,
+            "calculated_score": 1.0
+          },
+          "criteria_results": {
+            "assertion_1": {
+              "criterion_name": "assertion_1",
+              "criterion_description": "不应包含脏话或侮辱性语言",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则1: 满足要求（模拟对话中无脏话）",
+              "evidence": [],
+              "weight": 2.0
+            },
+            "assertion_2": {
+              "criterion_name": "assertion_2",
+              "criterion_description": "回复长度应在10-500字符之间",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则2: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            },
+            "assertion_3": {
+              "criterion_name": "assertion_3",
+              "criterion_description": "对于玩家的提问应给予回应",
+              "score": 1.0,
+              "passed": true,
+              "reasoning": "准则3: 满足要求",
+              "evidence": [],
+              "weight": 1.0
+            }
+          }
+        }
+      },
+      "final_score": 1.0,
+      "passed": true,
+      "errors": [],
+      "metadata": {
+        "scenario_type": "knowledge_test",
+        "random_seed": 42,
+        "agent_type": "mock",
+        "evaluation_time": "2026-01-21T23:13:24.660669",
+        "npc_role": {
+          "name": "友好的村民",
+          "personality": "热情友好，乐于助人",
+          "background": "在这个村庄生活了30年，熟悉村里的每一个人和每一件事",
+          "speaking_style": "亲切、温暖、充满关怀",
+          "values": [
+            "互助",
+            "诚实",
+            "善良",
+            "社区精神"
+          ]
+        }
+      },
+      "duration": 25.0
+    }
+  ],
+  "statistics": {
+    "scenario_types": {
+      "daily_chat": {
+        "count": 2,
+        "passed": 2,
+        "average_score": 0.865,
+        "min_score": 0.85,
+        "max_score": 0.88,
+        "pass_rate": 1.0,
+        "score_std_dev": 0.021
+      },
+      "emotional_support": {
+        "count": 1,
+        "passed": 1,
+        "average_score": 0.72,
+        "min_score": 0.72,
+        "max_score": 0.72,
+        "pass_rate": 1.0,
+        "score_std_dev": 0.0
+      },
+      "opinion_conflict": {
+        "count": 1,
+        "passed": 0,
+        "average_score": 0.65,
+        "min_score": 0.65,
+        "max_score": 0.65,
+        "pass_rate": 0.0,
+        "score_std_dev": 0.0
+      },
+      "basic_greeting": {
+        "count": 1,
+        "passed": 1,
+        "average_score": 0.95,
+        "min_score": 0.95,
+        "max_score": 0.95,
+        "pass_rate": 1.0,
+        "score_std_dev": 0.0
+      }
+    },
+    "grader_statistics": {
+      "character_consistency": {
+        "count": 5,
+        "average_score": 0.81,
+        "min_score": 0.65,
+        "max_score": 0.95,
+        "score_std_dev": 0.12
+      },
+      "interaction_quality": {
+        "count": 5,
+        "average_score": 0.79,
+        "min_score": 0.62,
+        "max_score": 0.93,
+        "score_std_dev": 0.11
+      },
+      "basic_rules": {
+        "count": 5,
+        "average_score": 0.9,
+        "min_score": 0.85,
+        "max_score": 0.98,
+        "score_std_dev": 0.05
+      }
+    },
+    "total_runs": 5
+  }
+}

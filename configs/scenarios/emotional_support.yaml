@@ -1,0 +1,53 @@
+# 情感支持场景
+id: "emotional_support_001"
+name: "情感倾诉与支持"
+description: "测试NPC在情感支持场景中的表现，玩家倾诉烦恼，期望获得理解和支持"
+scenario_type: "emotional_support"
+player_profile:
+  name: "烦恼的玩家"
+  personality: "shy"
+  age: 28
+  background: "工作压力大的上班族"
+  interests: ["阅读", "冥想", "散步"]
+  speaking_style: "犹豫、略带忧虑"
+  knowledge_level: 6
+  emotional_state: "sad"
+
+initial_prompt: "最近工作压力好大，感觉有点撑不下去了..."
+max_turns: 6
+expected_outcomes:
+  - "NPC能够表达理解和同情"
+  - "NPC能够提供情感支持"
+  - "NPC的回应不会过于冷漠或敷衍"
+  - "NPC能够根据角色设定提供适当的建议"
+  - "对话让玩家感受到被理解和关怀"
+
+reference_solution:
+  description: "理想的情感支持对话示例"
+  transcript:
+    - speaker: "player"
+      message: "最近工作压力好大，感觉有点撑不下去了..."
+    - speaker: "npc"
+      message: "听起来真的很不容易。工作压力大确实会让人感到疲惫，你能具体说说是什么让你感到压力吗？"
+    - speaker: "player"
+      message: "项目 deadline 很紧，团队合作也不顺利，感觉所有事都堆在一起了。"
+    - speaker: "npc"
+      message: "同时处理多个压力源确实很困难。我以前也经历过类似的情况，有时候把问题拆解成小部分会更容易处理。"
+    - speaker: "player"
+      message: "我也试过，但还是感觉 overwhelmed..."
+    - speaker: "npc"
+      message: "我理解这种感觉。记住，照顾好自己的身心健康同样重要。适当的休息和与人倾诉都能帮助你更好地应对压力。"
+    - speaker: "player"
+      message: "谢谢你听我说这些，感觉好多了。"
+  success_factors:
+    - "表达理解和同情"
+    - "提供具体的情感支持"
+    - "避免给出过于简单的建议"
+    - "保持支持性和非评判性态度"
+    - "鼓励玩家表达感受"
+
+metadata:
+  difficulty: "medium"
+  expected_duration: "3-5分钟"
+  tags: ["emotional_support", "empathy", "counseling"]
+  sensitive_topic: true

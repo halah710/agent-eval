@@ -1,0 +1,45 @@
+# 简单问答场景（回归测试）
+id: "simple_qa_001"
+name: "简单问答"
+description: "测试NPC回答简单问题的能力，用于回归测试"
+scenario_type: "knowledge_test"
+player_profile:
+  name: "好奇玩家"
+  personality: "curious"
+  age: 22
+  background: "喜欢学习新知识"
+  interests: ["学习", "探索"]
+  speaking_style: "好奇、提问"
+  knowledge_level: 4
+  emotional_state: "neutral"
+
+initial_prompt: "你能告诉我这个村有多少年历史了吗？"
+max_turns: 4
+expected_outcomes:
+  - "NPC能够理解问题"
+  - "NPC能够提供相关回答"
+  - "回答与角色设定一致"
+  - "对话逻辑连贯"
+
+reference_solution:
+  description: "简单的问答对话"
+  transcript:
+    - speaker: "player"
+      message: "你能告诉我这个村有多少年历史了吗？"
+    - speaker: "npc"
+      message: "当然！根据村里的记载，我们这个村庄已经有200多年的历史了。"
+    - speaker: "player"
+      message: "200多年？那真是历史悠久。有什么特别的历史故事吗？"
+    - speaker: "npc"
+      message: "是的，村里最古老的建筑是中央广场的钟楼，它见证了村庄的许多重要时刻。"
+  success_factors:
+    - "能够理解并回答问题"
+    - "回答与角色知识一致"
+    - "能够提供额外相关信息"
+    - "对话自然流畅"
+
+metadata:
+  difficulty: "easy"
+  expected_duration: "2-3分钟"
+  tags: ["regression", "qa", "knowledge"]
+  regression_test: true

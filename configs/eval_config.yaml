@@ -1,0 +1,160 @@
+# 评测系统配置
+
+# 全局设置
+global:
+  random_seed: 42
+  output_dir: "./outputs"
+  report_format: "json"  # json 或 html
+  log_level: "INFO"
+  save_transcripts: true
+
+# 评测器配置
+evaluator:
+  type: "simple"  # simple 或 multi
+  config:
+    max_turns: 5
+    turn_delay: 0.1  # 每轮延迟（秒）
+    timeout: 30.0  # 超时时间（秒）
+
+# 玩家模拟器配置
+player_simulator:
+  type: "simple"  # simple, role, llm
+  config:
+    topic_change_probability: 0.2
+    question_probability: 0.3
+    response_templates:
+      - "我明白了。"
+      - "这很有趣。"
+      - "你能详细说说吗？"
+      - "我不太确定。"
+      - "原来如此。"
+      - "这让我想起了..."
+      - "你怎么看？"
+      - "继续说吧。"
+    topics:
+      - "天气"
+      - "爱好"
+      - "工作"
+      - "家庭"
+      - "旅行"
+      - "美食"
+      - "电影"
+      - "音乐"
+
+# 评分器配置
+graders:
+  # 角色一致性评分器（自然语言断言）
+  character_consistency:
+    type: "natural_language"
+    config:
+      assertions:
+        - "NPC的回复符合其角色设定"
+        - "NPC的说话风格保持一致"
+        - "NPC的价值观在对话中得到体现"
+        - "NPC没有出现角色矛盾的行为或言论"
+      scoring_criteria: "评估NPC是否始终保持角色一致性，包括性格、说话风格、价值观等方面。"
+      model: "gpt-4o-mini"
+      temperature: 0.0
+      conversion:
+        strategy: "simple_ratio"  # 简单比例转换策略
+        pass_threshold: 0.75  # 通过阈值75%
+
+  # 互动质量评分器（自然语言断言）
+  interaction_quality:
+    type: "natural_language"
+    config:
+      assertions:
+        - "对话自然流畅"
+        - "NPC的回应与玩家输入相关"
+        - "NPC能够理解玩家的意图"
+        - "对话能够持续进行，不会突然中断"
+        - "NPC的回应有助于推动对话发展"
+      scoring_criteria: "评估对话的互动质量，包括流畅性、相关性、理解能力和对话推动力。"
+      model: "gpt-4o-mini"
+      temperature: 0.0
+      conversion:
+        strategy: "weighted_average"  # 加权平均转换策略
+        pass_threshold: 0.7  # 通过阈值70%
+        assertion_weights: [1.0, 1.2, 1.5, 0.8, 1.0]  # 每个断言的权重
+        # 权重说明：
+        # 1. 对话自然流畅: 1.0
+        # 2. NPC的回应与玩家输入相关: 1.2 (更重要)
+        # 3. NPC能够理解玩家的意图: 1.5 (最重要)
+        # 4. 对话能够持续进行: 0.8 (稍次要)
+        # 5. NPC的回应有助于推动对话发展: 1.0
+
+  # 基础规则评分器（代码规则）
+  basic_rules:
+    type: "rule_based"
+    config:
+      rules:
+        - name: "no_profanity"
+          pattern: "脏话|骂人|侮辱"
+          description: "不应包含脏话或侮辱性语言"
+          required: true
+          weight: 2.0
+        - name: "response_length"
+          pattern: ".{10,500}"
+          description: "回复长度应在10-500字符之间"
+          required: false
+          weight: 1.0
+        - name: "question_answering"
+          pattern: "吗？|？"
+          description: "对于玩家的提问应给予回应"
+          required: false
+          weight: 1.0
+      pass_threshold: 0.7
+
+  # 多评判者评分器（组合多个评分器）
+  multi_judge:
+    type: "multi_judge"
+    config:
+      judges:
+        - "character_consistency"
+        - "interaction_quality"
+        - "basic_rules"
+      voting_strategy: "weighted_average"
+      weights:
+        character_consistency: 1.5
+        interaction_quality: 1.5
+        basic_rules: 1.0
+
+# 评测套件配置
+test_suites:
+  # 能力评测套件（Capability Eval）
+  capability_suite:
+    name: "能力评测套件"
+    description: "测试NPC的基本对话能力"
+    suite_type: "capability"
+    scenarios:
+      - "scenarios/daily_chat.yaml"
+      - "scenarios/emotional_support.yaml"
+      - "scenarios/opinion_conflict.yaml"
+
+  # 回归评测套件（Regression Eval）
+  regression_suite:
+    name: "回归评测套件"
+    description: "确保已有功能不会倒退"
+    suite_type: "regression"
+    scenarios:
+      - "scenarios/basic_greeting.yaml"
+      - "scenarios/simple_qa.yaml"
+
+# 权重配置（用于计算最终得分）
+weights:
+  character_consistency: 0.4
+  interaction_quality: 0.4
+  basic_rules: 0.2
+  multi_judge: 1.0  # 如果使用多评判者作为最终得分
+
+# 通过阈值
+passing_thresholds:
+  capability_eval: 0.6  # 能力评测通过阈值较低
+  regression_eval: 0.9  # 回归评测通过阈值较高
+
+# 报告配置
+report:
+  include_full_transcript: true
+  highlight_low_scores: true
+  save_individual_reports: true
+  summary_format: "detailed"  # simple 或 detailed

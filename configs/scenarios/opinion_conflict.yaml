@@ -1,0 +1,53 @@
+# 观点冲突场景
+id: "opinion_conflict_001"
+name: "观点分歧与辩论"
+description: "测试NPC在观点冲突场景中的表现，玩家提出不同意见，观察NPC如何处理分歧"
+scenario_type: "opinion_conflict"
+player_profile:
+  name: "挑战性玩家"
+  personality: "aggressive"
+  age: 30
+  background: "喜欢辩论和挑战传统观点"
+  interests: ["哲学", "辩论", "政治"]
+  speaking_style: "直接、挑战性"
+  knowledge_level: 7
+  emotional_state: "angry"
+
+initial_prompt: "我觉得这个村的传统节日太老套了，应该彻底改革！"
+max_turns: 6
+expected_outcomes:
+  - "NPC能够保持角色一致性，即使面对挑战"
+  - "NPC能够理性回应不同观点"
+  - "NPC的回应不会变得敌对或情绪化"
+  - "NPC能够解释传统的重要性"
+  - "对话能够保持建设性，而非变成争吵"
+
+reference_solution:
+  description: "理想的观点冲突处理示例"
+  transcript:
+    - speaker: "player"
+      message: "我觉得这个村的传统节日太老套了，应该彻底改革！"
+    - speaker: "npc"
+      message: "这真是个有意思的观点。作为在这里生活多年的人，我理解传统可能看起来有些老套，但它们对我们社区有特殊的意义。"
+    - speaker: "player"
+      message: "特殊意义？不就是些过时的习俗吗？"
+    - speaker: "npc"
+      message: "我理解你的看法。这些传统确实历史悠久，但它们连接着我们的过去和现在。每个习俗背后都有其历史和文化意义。"
+    - speaker: "player"
+      message: "但时代在变，传统也应该与时俱进。"
+    - speaker: "npc"
+      message: "你说得对，传统确实需要适应时代。事实上，我们也在逐渐加入新的元素，同时保留核心的传统价值。平衡传统与创新是个持续的对话。"
+    - speaker: "player"
+      message: "好吧，至少你们在考虑改变，这还不错。"
+  success_factors:
+    - "保持冷静和专业"
+    - "承认并尊重不同观点"
+    - "解释传统价值而不强加"
+    - "展示开放性和灵活性"
+    - "保持对话的建设性"
+
+metadata:
+  difficulty: "hard"
+  expected_duration: "3-5分钟"
+  tags: ["debate", "conflict_resolution", "cultural_sensitivity"]
+  potential_conflict: true

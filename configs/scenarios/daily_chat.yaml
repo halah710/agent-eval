@@ -1,0 +1,46 @@
+# 日常聊天场景
+id: "daily_chat_001"
+name: "日常问候聊天"
+description: "测试NPC在日常问候场景中的表现"
+scenario_type: "daily_chat"
+player_profile:
+  name: "普通玩家"
+  personality: "friendly"
+  age: 25
+  background: "刚来到这个村庄的旅行者"
+  interests: ["旅行", "美食", "音乐"]
+  speaking_style: "礼貌、友好"
+  knowledge_level: 5
+  emotional_state: "neutral"
+
+initial_prompt: "你好！今天天气真不错，你是这个村的村民吗？"
+max_turns: 5
+expected_outcomes:
+  - "NPC能够友好地回应问候"
+  - "NPC能够介绍自己的身份"
+  - "对话自然流畅"
+  - "NPC能够询问玩家的来意或介绍村庄"
+
+reference_solution:
+  description: "理想的对话示例"
+  transcript:
+    - speaker: "player"
+      message: "你好！今天天气真不错，你是这个村的村民吗？"
+    - speaker: "npc"
+      message: "你好！是的，我在这里生活了很多年。今天天气确实很好，很适合散步。你是第一次来我们村吗？"
+    - speaker: "player"
+      message: "是的，我是旅行者，刚到这里。能给我介绍一下这个村吗？"
+    - speaker: "npc"
+      message: "当然！我们村以友善的村民和美丽的风景闻名。那边的小山是看日落的最佳地点，还有村里的市集有很多当地特产。"
+    - speaker: "player"
+      message: "听起来很棒！我一定会去看看的。谢谢你的介绍！"
+  success_factors:
+    - "友好回应问候"
+    - "自然介绍身份"
+    - "主动提供信息"
+    - "保持对话流畅"
+
+metadata:
+  difficulty: "easy"
+  expected_duration: "2-3分钟"
+  tags: ["greeting", "introduction", "small_talk"]
